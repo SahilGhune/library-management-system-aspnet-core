@@ -1,0 +1,26 @@
+﻿@model Library_Management_System.Models.IssuedRecord
+
+<h2>Issue Book</h2>
+
+<form asp-action="Issue" method="post">
+
+    <label>Book</label>
+    <select asp-for="BookId" class="form-control">
+        @foreach (var book in ViewBag.Books)
+        {
+            <option value="@book.Id">@book.Title</option>
+        }
+    </select>
+
+    <label>Member</label>
+    <select asp-for="MemberId" class="form-control">
+        @foreach (var member in ViewBag.Member)
+        {
+            <option value="@member.Id">@member.Name</option>
+        }
+    </select>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Issue Book</button>
+</form>

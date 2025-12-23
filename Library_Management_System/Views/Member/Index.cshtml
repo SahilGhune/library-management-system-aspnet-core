@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Library_Management_System.Models.Member>
+
+<h2>Members List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Member</a>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Name</td>
+            <td>@m.Email</td>
+            <td>@m.Phone</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@m.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@m.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@m.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

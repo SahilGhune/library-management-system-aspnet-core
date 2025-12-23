@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Library_Management_System.Models.Books>
+
+<h2>All Books</h2>
+
+<form method="get">
+    <input type="text" name="search" value="@Context.Request.Query["search"]" placeholder="Search by title" />
+    <button type="submit">Search</button>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Book</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Available</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.Title</td>
+                <td>@b.Author</td>
+                <td>@b.Category</td>
+                <td>@b.AvailableCopies</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@b.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@b.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@b.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

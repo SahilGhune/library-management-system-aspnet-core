@@ -1,0 +1,13 @@
+﻿@model Library_Management_System.Models.IssuedRecord
+
+<h2>Return Book</h2>
+
+<p><strong>Book:</strong> @Model.Book.Title</p>
+<p><strong>Member:</strong> @Model.Member.Name</p>
+<p><strong>Issue Date:</strong> @Model.IssueDate</p>
+<p><strong>Due Date:</strong> @Model.DueDate</p>
+
+<form method="post" asp-action="Return">
+    <button type="submit" class="btn btn-primary">Confirm Return</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

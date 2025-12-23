@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Library_Management_System.Models.IssuedRecord>
+
+<h2>Issued Books</h2>
+
+<p>
+    <a asp-action="Issue" class="btn btn-success">Issue New Book</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Member</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var r in Model)
+        {
+            bool isOverdue = DateTime.Now > r.DueDate && !r.IsReturned;
+
+            <tr class="@(isOverdue ? "table-danger" : "")">
+                <td>@r.Book.Title</td>
+                <td>@r.Member.Name</td>
+                <td>@r.IssueDate.ToShortDateString()</td>
+                <td>@r.DueDate.ToShortDateString()</td>
+
+                <td>
+                    @if (r.IsReturned)
+                    {
+                        <span class="badge bg-success">Returned</span>
+                    }
+                    else if (isOverdue)
+                    {
+                        <span class="badge bg-danger">Overdue</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Issued</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

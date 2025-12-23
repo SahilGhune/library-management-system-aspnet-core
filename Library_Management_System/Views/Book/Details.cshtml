@@ -1,0 +1,14 @@
+﻿@model Library_Management_System.Models.Books
+
+<h2>Book Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Author:</strong> @Model.Author</p>
+<p><strong>ISBN:</strong> @Model.ISBN</p>
+<p><strong>Category:</strong> @Model.Category</p>
+<p><strong>Total Copies:</strong> @Model.TotalCopies</p>
+<p><strong>Available Copies:</strong> @Model.AvailableCopies</p>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>

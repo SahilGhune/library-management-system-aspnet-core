@@ -1,0 +1,22 @@
+﻿@model Library_Management_System.Models.Member
+
+<h2>Add Member</h2>
+
+<form asp-action="Create" method="post">
+
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" />
+
+    <label>Email</label>
+    <input asp-for="Email" class="form-control" />
+
+    <label>Phone</label>
+    <input asp-for="Phone" class="form-control" />
+
+    <label>Address</label>
+    <input asp-for="Address" class="form-control" />
+
+    <br />
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>

@@ -1,0 +1,28 @@
+﻿@model Library_Management_System.Models.Books
+
+<h2>Add New Book</h2>
+
+<form asp-action="Create" method="post">
+
+    <label>Title</label>
+    <input asp-for="Title" class="form-control" />
+
+    <label>Author</label>
+    <input asp-for="Author" class="form-control" />
+
+    <label>ISBN</label>
+    <input asp-for="ISBN" class="form-control" />
+
+    <label>Category</label>
+    <input asp-for="Category" class="form-control" />
+
+    <label>Total Copies</label>
+    <input asp-for="TotalCopies" class="form-control" />
+
+    <label>Available Copies</label>
+    <input asp-for="AvailableCopies" class="form-control" />
+
+    <br />
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>

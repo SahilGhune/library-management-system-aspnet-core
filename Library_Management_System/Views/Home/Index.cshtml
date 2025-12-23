@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    .dashboard-card {
+        border-radius: 15px;
+        padding: 25px;
+        color: white;
+        transition: 0.3s;
+    }
+    .dashboard-card:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    .card-books { background: linear-gradient(45deg, #1e3c72, #2a5298); }
+    .card-members { background: linear-gradient(45deg, #11998e, #38ef7d); }
+    .quick-btn {
+        margin-right: 10px;
+    }
+</style>
+
+<h2 class="mb-4">📚 Library Management Dashboard</h2>
+
+<div class="row">
+
+    <!-- Books -->
+    <div class="col-md-4 mb-4">
+        <div class="dashboard-card card-books shadow">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4>Total Books</h4>
+                    <h1>@ViewBag.TotalBooks</h1>
+                </div>
+                <i class="bi bi-book" style="font-size: 70px;"></i>
+            </div>
+            <a asp-controller="Book" asp-action="Index" class="btn btn-light mt-3 w-100">
+                Manage Books
+            </a>
+        </div>
+    </div>
+
+    <!-- Members -->
+    <div class="col-md-4 mb-4">
+        <div class="dashboard-card card-members shadow">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4>Total Members</h4>
+                    <h1>@ViewBag.TotalMembers</h1>
+                </div>
+                <i class="bi bi-people" style="font-size: 70px;"></i>
+            </div>
+            <a asp-controller="Member" asp-action="Index" class="btn btn-light mt-3 w-100">
+                Manage Members
+            </a>
+        </div>
+    </div>
+
+    <!-- Issued Books -->
+    <div class="col-md-4 mb-4">
+        <div class="dashboard-card card-warning shadow" style="background: linear-gradient(45deg, #f7971e, #ffd200);">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4>Issued Books</h4>
+                    <h1>@ViewBag.TotalIssuedBooks</h1>
+                </div>
+                <i class="bi bi-journal-arrow-up" style="font-size: 70px;"></i>
+            </div>
+            <a asp-controller="IssueRecord" asp-action="Index" class="btn btn-light mt-3 w-100">
+                View Issued Books
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="dashboard-card shadow"
+             style="background: linear-gradient(45deg, #cb2d3e, #ef473a); color:white;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4>Overdue Books</h4>
+                    <h1>@ViewBag.OverdueBooks</h1>
+                </div>
+                <i class="bi bi-exclamation-triangle" style="font-size: 60px;"></i>
+            </div>
+            <a asp-controller="IssueRecord" asp-action="Index"
+               class="btn btn-light mt-3 w-100">
+                View Overdue
+            </a>
+        </div>
+    </div>
+
+
+
+</div>
+
+<hr />
+
+<h3>⚡ Quick Actions</h3>
+
+<a asp-controller="Book" asp-action="Create" class="btn btn-success quick-btn">
+    <i class="bi bi-plus-circle"></i> Add Book
+</a>
+
+<a asp-controller="Member" asp-action="Create" class="btn btn-primary quick-btn">
+    <i class="bi bi-person-plus"></i> Add Member
+</a>
